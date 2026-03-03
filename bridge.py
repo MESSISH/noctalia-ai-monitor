@@ -168,6 +168,12 @@ class BridgeServer:
         event_name: str = event.get("event", "")
         session_id: str = event.get("session_id", "")
 
+        if not session_id:
+            print("[bridge] event missing session_id, ignoring", file=sys.stderr, flush=True)
+            writer.close()
+            await writer.wait_closed()
+            return
+
         handler_name = _EVENT_HANDLERS.get(event_name)
         if handler_name is None:
             print(

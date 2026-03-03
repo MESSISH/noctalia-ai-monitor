@@ -353,7 +353,9 @@ Item {
             root.pendingApprovals = result.pending_approvals || [];
             root.computeGlobalPhase();
           }
-        } catch (e) {}
+        } catch (e) {
+          Logger.w("AiMonitor", "Failed to parse command output:", stdoutText);
+        }
       }
     }
   }

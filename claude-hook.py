@@ -52,7 +52,8 @@ def send_event(state):
     """Send event to bridge, return response if any"""
     sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
     try:
-        sock.settimeout(TIMEOUT_SECONDS)
+        is_permission = state.get("event") == "PermissionRequest"
+        sock.settimeout(TIMEOUT_SECONDS if is_permission else 10)
         sock.connect(SOCKET_PATH)
         sock.sendall(json.dumps(state).encode() + b"\n")
 

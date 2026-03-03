@@ -1,0 +1,28 @@
+{
+  "id": "ai-monitor",
+  "name": "AI Monitor",
+  "version": "0.1.0",
+  "minNoctaliaVersion": "3.7.0",
+  "author": "yizi",
+  "license": "MIT",
+  "description": "Monitor Claude Code sessions and approve permissions from the shell.",
+  "icon": "brain",
+  "tags": ["Bar", "Panel", "Utility"],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "pythonCommand": "python3",
+      "socketPath": "",
+      "notifyOnApproval": true,
+      "autoInstallHooks": true
+    }
+  }
+}

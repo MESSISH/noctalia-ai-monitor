@@ -248,9 +248,9 @@ class BridgeServer:
             content = obj.get("message", {}).get("content", [])
             for c in reversed(content if isinstance(content, list) else []):
                 if isinstance(c, dict) and c.get("type") == "text":
-                    text = c["text"].strip()
-                    if text:
-                        return text[:300]
+                    snippet = c["text"].strip()
+                    if snippet:
+                        return snippet[:300]
 
         return ""
 

@@ -60,12 +60,15 @@ def send_event(state):
         # For permission requests, wait for response (use event field, not status)
         if state.get("event") == "PermissionRequest":
             # Read until we get a complete line (handles fragmented responses)
+            MAX_RESPONSE_SIZE = 64 * 1024  # 64KB safety limit
             data = b""
             while b"\n" not in data:
                 chunk = sock.recv(4096)
                 if not chunk:
                     break
                 data += chunk
+                if len(data) > MAX_RESPONSE_SIZE:
+                    break
             if data:
                 return json.loads(data.decode())
 

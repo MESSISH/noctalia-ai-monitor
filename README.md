@@ -1,5 +1,7 @@
 # noctalia-ai-monitor
 
+**English** | [中文](README.zh-CN.md)
+
 A [noctalia-shell](https://github.com/noctalia) plugin that monitors Claude Code sessions and lets you approve or deny permission requests directly from the desktop shell.
 
 ## Screenshot
